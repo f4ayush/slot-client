@@ -28,22 +28,27 @@ export default function Form({ slotDetails, setShowModal }) {
     return (
         <div className="cover">
             <div className="form-container">
-                <h5>{userDetails.slot}</h5>
+                <h5>{userDetails.slot} to {parseInt(userDetails.slot)+1}</h5>
                 <div className="input-container">
-                    <label>First Name &nbsp;
-                        <input type="text" placeholder="First Name" value={userDetails.firstName} onChange={(e) => { setUserDetails({ ...userDetails, firstName: e.target.value }); setError(false) }} />
-                    </label>
-                    <label>Last Name &nbsp;
+                    <div className="input">
+                    <label>First Name</label>
+                    <input type="text" placeholder="First Name" value={userDetails.firstName} onChange={(e) => { setUserDetails({ ...userDetails, firstName: e.target.value }); setError(false) }} />
+                    </div>
+                
+                    <div className="input">
+                        <label>Last Name</label>
                         <input type="text" placeholder="Last Name" value={userDetails.lastName} onChange={(e) => { setUserDetails({ ...userDetails, lastName: e.target.value }); setError(false) }} />
-                    </label>
-                    <label>Phone Number &nbsp;
+                    </div>
+                    <div className="input">
+                        <label>Phone</label>
                         <input type="number" placeholder="Phone Number" value={userDetails.phoneNumber} onChange={(e) => { setUserDetails({ ...userDetails, phoneNumber: e.target.value }); setError(false) }} />
-                    </label>
+                    </div>
+                    
                     {error && <p>Please fill all the fields</p>}
                 </div>
                 <div className="button-container">
-                    <button onClick={handleSave}>Save</button>
-                    <button onClick={handleCancel}>Cancel</button>
+                    <button className="save" onClick={handleSave}>Save</button>
+                    <button className="cancel" onClick={handleCancel}>Cancel</button>
                 </div>
             </div>
         </div>
